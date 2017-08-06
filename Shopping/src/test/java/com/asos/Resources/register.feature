@@ -4,7 +4,7 @@ Feature: Register to the ASOS page
   So that I can register successfully.
 
   Scenario Outline: user can register an account with valid data.
-    Given user is on Asos Join/registration  page
+    Given user is on Asos Join/registration page
     When  user should enter the "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
     And   user clicks join ASOS button
     Then  user should navigate to home page with logged in state
@@ -15,41 +15,37 @@ Feature: Register to the ASOS page
 
 
   Scenario Outline: email address validation
-    Given user is in asospage
-    When  he should enter the invalid emailaddress "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
-    And   he clicks  join ASOS button
+    Given user is on Asos Join/registration page
+    When  user should enter tuser invalid emailaddress "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
+    And   user clicks  join ASOS button
     Then  "Email fail! Please type in your correct email address"  message is displayed
     Examples:
-      | emailaddress              | firstname |lastname  | password  | dateofbirth | gender |
-      | 365676787899890            |yyuuiu    | hgfhghj  |5768798 | hghjjkh    |77778|
+      | emailaddress              | firstname |lastname  | password    | dateofbirth | gender |
+      | 365676787899890            |janci     | rani     |paranisara25 | 17/04/1984  | female |
 
   Scenario Outline: password field validation.
-    Given user is in asospage
-    When he should enter the invaldpassword "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
-    And he clicks join ASOS button
+    Given user is on Asos Join/registration page
+    When user enter the invaldpassword "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
+    And user clicks join ASOS button
     Then  "At least 6 letters and 1 number, please!" message is displayed
     Examples:
       | emailaddress              | firstname |lastname  | password  | dateofbirth | gender |
       | jancilondon1@gmail.com    | janci      | sarasasi1| 00000000  | 17/04/1984  |femal   |
 
-Scenario Outline: emailaddress validation
+Scenario Outline: existing email address
   Given user is in registration page.
-  When  he should enter the already exist eamiladdress"<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
-  And   And he clicks join ASOS button
-  And   navigate it in to already registerpage
-  Then  "emailaddress is already registered" message is displayed.
+  When  user enter existing email address"<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
+  And   user clicks join ASOS button
+  Then  user should navigate to already register page
+  And   it should display "emailaddress is already registered"
+  Examples:
+    | emailaddress              | firstname |lastname  | password  | dateofbirth | gender |
+    | jancilondon1@gmail.com    | janci      | sarasasi1| 00000000  | 17/04/1984  |femal   |
 
-  Scenario Outline: null data validation
+
+  Scenario:User submitting registration form without entering any data in the fields
     Given user is in registration page.
-    When  he should not enter the data "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
-    And   he clicks join ASOS button
-    Then  "enter all mandatory field" message is displayed.
-
- # Scenario Outline: emailaddress validation
-   # Given user is in registration page.
-   # When  he should enter the already exist eamiladdress and differrent password"<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
-   # And   he clicks join ASOS button
-   # And   navigate in to already registerpage
-   # Then  "emailaddress is already registered" message is displayed.
+    And   userclicks join ASOS button
+    Then  it should display an error message "enter all mandatory field"
 
 
