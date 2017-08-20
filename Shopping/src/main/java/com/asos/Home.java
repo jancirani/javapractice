@@ -24,4 +24,9 @@ public class Home extends DriverManager {
         String actualText = driver.findElement(By.xpath(".//*[@id='BodyTag']/div[4]/div/section/section/div/div/article[1]/div[1]/h2/span")).getText();
         return actualText;
     }
+    public void join()
+    {
+        driver.findElement(By.linkText("Join")).click();
+
+    }
 }

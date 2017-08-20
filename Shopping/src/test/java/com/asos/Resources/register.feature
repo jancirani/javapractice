@@ -5,13 +5,13 @@ Feature: Register to the ASOS page
 
   Scenario Outline: user can register an account with valid data.
     Given user is on Asos Join/registration page
-    When  user should enter the "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
+    When  user enter the "<emailaddress>""<firstname>""<lastname>""<password>""<dateofbirth>""<gender>"
     And   user clicks join ASOS button
     Then  user should navigate to home page with logged in state
 
     Examples:
-      | emailaddress              | firstname |lastname  | password  | dateofbirth | gender |
-      | jancilondon1@gmail.com    |janci      | sarasasi1   | sarasasi1 | 17/04/1984    |female|
+      | emailaddress              | firstname |lastname  | password     | dateofbirth | gender |
+      | jancisasi25@gmail.com     |janci      | rani     | paranisara25 | 17/04/1984  | female  |
 
 
   Scenario Outline: email address validation

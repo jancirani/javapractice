@@ -3,8 +3,12 @@ package com.asos;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
+
+import static com.asos.DriverManager.driver;
 
 /**
  * Created by peraikumar on 20/10/2016.
@@ -16,7 +20,9 @@ public class Hooks {
    @Before
     public void setUP() throws IOException
     {
-        DM.openBrowser();
+       ChromeDriverManager.getInstance().setup();
+        driver= new ChromeDriver();
+        driver.get("http://www.asos.com/");
     }
    @After
     public void tearDown()

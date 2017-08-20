@@ -16,37 +16,21 @@ public class DriverManager {
     public static WebDriver driver;
 
 
-    public void openBrowser() throws IOException
-    {
-        Properties prop=new Properties();
-        FileInputStream fp=new FileInputStream("C:\\Users\\sasikumar\\IdeaProjects\\Shopping\\src\\test\\java\\com\\asos\\Resources\\config.properties");
-        prop.load(fp);
-        String URL=prop.getProperty("url");
-        String BROWSER=prop.getProperty("browser");
-        System.out.println(URL);
-        if(BROWSER.equalsIgnoreCase("firefox"))
-        {
-            driver= new FirefoxDriver();
-        }
-        else if(BROWSER.equalsIgnoreCase("chrome"))
-        {
-            System.setProperty("webdriver.chrome.driver", "c://chromedriver.exe");
-            driver=new ChromeDriver();
-        }
-        driver.get(URL);
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//        Alert alert= driver.switchTo().alert();
-//        String msg=alert.getText();
-//        System.out.println(msg);
-//        alert.accept();
+    public void openBrowser() throws IOException {
 
+
+        Properties properties=new Properties();
+        FileInputStream fileInputStream=new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\java\\com\\janci\\in\\resource\\config.properties");
+        properties.load(fileInputStream);
+        driver = new FirefoxDriver();
+        String browser=properties.getProperty("browser");
+        String url=properties.getProperty("url");
 
     }
-
-
     public void closeBrowser()
     {
-    driver.close();
+        driver.quit();
     }
 }
+
+
