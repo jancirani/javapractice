@@ -16,7 +16,7 @@ public class DriverManager {
     public static WebDriver driver;
 
 
-    public void openBrowser() throws IOException {
+   /* public void openBrowser() throws IOException {
 
 
         Properties properties=new Properties();
@@ -26,7 +26,7 @@ public class DriverManager {
         String browser=properties.getProperty("browser");
         String url=properties.getProperty("url");
 
-    }
+    }*/
     public void closeBrowser()
     {
         driver.quit();

@@ -3,6 +3,7 @@ Feature: Register to the ASOS page
   I want to register the asos site
   So that I can register successfully.
 
+  @reg
   Scenario Outline: user can register an account with valid data.
     Given user is on Asos Join/registration page
     When  user enter the "<emailaddress>""<firstname>""<lastname>""<password>""<dateofbirth>""<gender>"

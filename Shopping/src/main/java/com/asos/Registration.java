@@ -1,30 +1,26 @@
 package com.asos;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 /**
- * Created by peraikumar on 09/08/2017.
+ * Created by peraikumar on 20/08/2017.
  */
-//public class Registration extends DriverManager {
-   //webDriver driver;
-   //public void register()
-   // {
-        //driver.findElement(By.id("#Email").sendKeys("jancisasi25@gmail.com"));
-        //driver.findElement(By.id("#FirstName").sendKeys("janci"));
-       // driver.findElement(By.id("#LastName").sendKeys("sasi"));
-       // driver.findElement(By.id("#Password").sendKeys("paranisara25"));
-      //  driver.findElement(By.id("#BirthDay").sendKeys("17"));
-      //  driver.findElement(By.id("#BirthMonth").sendKeys("04"));
-      //  driver.findElement(By.id("#BirthYear").sendkeys("1984"));
-        //driver.findElement(By.className(".tickbox-container.subfield.qa-gender-female.selected").sendkeys(""));
-       //driver.findElement(By.className(".tickbox-container.subfield.qa-gender-female.selected").sendkeys(""))
-       // driver.findElement(By.className(".checkbox.qa-marketing-label").sendkeys("")
-       // driver.findElement(By.className(".checkbox").sendkey))
-       // driver.findElement(By.id("#register")).click;
+public class Registration extends DriverManager {
+    DriverManager dm = new DriverManager();
 
-
-   // }
-//}
+    public void register(String email, String fname, String lname, String pwd) throws InterruptedException {
+        driver.findElement(By.id("Email")).sendKeys(email);
+        driver.findElement(By.id("FirstName")).sendKeys(fname);
+        driver.findElement(By.id("LastName")).sendKeys(lname);
+        driver.findElement(By.id("Password")).sendKeys(pwd);
+        driver.findElement(By.id("BirthDay")).sendKeys("17");
+        driver.findElement(By.id("BirthMonth")).sendKeys("04");
+        driver.findElement(By.id("BirthYear")).sendKeys("1984");
+        driver.findElement(By.cssSelector(".tickbox-container.subfield.last-subfield.qa-gender-male")).click();
+        driver.findElement(By.cssSelector(".checkbox.qa-marketing-label")).click();
+       // driver.findElement(By.xpath(".//*[@id='main']/div[1]/div[2]/form/fieldset/div[7]/div[2]/label/span/text()")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.id("register")).click();
+        Thread.sleep(1000);
+    }
+}
