@@ -13,7 +13,8 @@ import org.junit.Assert;
 public class Stepdef {
 
     Home home = new Home();
-    SearchPage sp= new SearchPage();
+    SearchPage sp = new SearchPage();
+    Registration reg = new Registration();
 
     @Given("^I am in home page$")
     public void i_am_in_home_page()
@@ -56,8 +57,8 @@ home.multiple(product);
 
 
     @When("^user enter the \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
-    public void userEnterThe(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5){
-        //registration.("")
+    public void userEnterThe(String email, String fname, String lname, String pwd, String dob, String gender) throws InterruptedException {
+        reg.register(email, fname, lname, pwd);
     }
 
     @And("^user clicks join ASOS button$")
