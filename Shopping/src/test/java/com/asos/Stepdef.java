@@ -170,5 +170,14 @@ public class Stepdef {
         Assert.assertEquals(expected,actual);
     }
 
+    @When("^user enter the invaldpassword \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"\"([^\"]*)\"$")
+    public void user_enter_the_invaldpassword(String email, String fname, String lname, String pwd, String dob, String gender) throws Throwable {
+       reg.register(email,fname,lname,pwd);
+    }
 
+    @Then("^\"([^\"]*)\" password error message is displayed$")
+    public void password_error_message_is_displayed(String expected) throws Throwable {
+    String actual = reg.passwordVerification();
+    Assert.assertEquals(expected, actual);
+    }
 }
