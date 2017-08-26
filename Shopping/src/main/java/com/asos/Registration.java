@@ -49,4 +49,9 @@ public class Registration extends DriverManager {
        return driver.findElement(By.cssSelector("#Email-error")).getText();
 
    }
+   public String passwordverification()
+   {
+      return driver.findElement(By.cssSelector("#Password-error")) .getText();
+   }
+
 }
