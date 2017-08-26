@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = ".",
         dryRun = false,
-        tags="@reg1",
+        tags="@men",
         //tags="@reg, @search",
         format={"json:target/cucumber.json", "html:target/cucumber"})
 
