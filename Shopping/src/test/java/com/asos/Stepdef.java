@@ -7,6 +7,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
+import static com.googlecode.totallylazy.time.DateConverter.functions.parse;
+
 /**
  * Created by peraikumar on 20/10/2016.
  */
@@ -15,7 +17,7 @@ public class Stepdef {
     Home home = new Home();
     SearchPage sp = new SearchPage();
     Registration reg = new Registration();
-
+    MenPage me = new MenPage();
     @Given("^I am in home page$")
     public void i_am_in_home_page()
     {
@@ -179,5 +181,26 @@ public class Stepdef {
     public void password_error_message_is_displayed(String expected) throws Throwable {
     String actual = reg.passwordVerification();
     Assert.assertEquals(expected, actual);
+    }
+
+    @Given("^user is in the homepage$")
+    public void userIsInTheHomepage() throws Throwable
+    {
+        home.verifyHomePage();
+    }
+
+    @When("^user click the men link$")
+    public void userClickTheMenLink() throws Throwable {
+        me.clickpage();
+    }
+
+    @And("^user click on view all buttons$")
+    public void userClickOnViewAllButtons() throws Throwable {
+    me.search();
+    }
+
+    @Then("^user successfully view the all products$")
+    public void userSuccessfullyViewTheAllProducts() throws Throwable {
+        Assert.assertTrue(me.mensAllProductsPage());
     }
 }
