@@ -4,7 +4,9 @@ package com.asos;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.IOException;
 

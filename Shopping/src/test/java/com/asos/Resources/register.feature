@@ -3,7 +3,6 @@ Feature: Register to the ASOS page
   I want to register the asos site
   So that I can register successfully.
 
-  @reg
   Scenario Outline: user can register an account with valid data.
     Given user is on Asos Join/registration page
     When  user enter the "<emailaddress>""<firstname>""<lastname>""<password>""<dateofbirth>""<gender>"
@@ -14,10 +13,10 @@ Feature: Register to the ASOS page
       | emailaddress              | firstname |lastname  | password     | dateofbirth | gender |
       | jancisasi25@gmail.com     |janci      | rani     | paranisara25 | 17/04/1984  | female  |
 
-
+  @reg1
   Scenario Outline: email address validation
     Given user is on Asos Join/registration page
-    When  user should enter tuser invalid emailaddress "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
+    When  user enter the invalid emailaddress "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
     And   user clicks  join ASOS button
     Then  "Email fail! Please type in your correct email address"  message is displayed
     Examples:
@@ -45,8 +44,8 @@ Scenario Outline: existing email address
 
 
   Scenario:User submitting registration form without entering any data in the fields
-    Given user is in registration page.
-    And   userclicks join ASOS button
+    Given user is in registration page
+    When  user clicks join ASOS button
     Then  it should display an error message "enter all mandatory field"
 
 

@@ -1,15 +1,16 @@
+@search
 Feature: Search Feature- Asos
   As an user
   I Want to search a product
   So that I can view that product successully
 
-@sc1
+
   Scenario: Search product -Valid Data
     Given I am in home page
     When I search a product
     Then I can view that respective product
 
-  @sc1
+
   Scenario Outline: search product with multiple values- valid data
    Given I am in home page
    When I search a "<product>"
@@ -17,5 +18,5 @@ Feature: Search Feature- Asos
 
    Examples:
      | product |
-      |  adidas|
+     |  adidas|
     | puma     |
