@@ -1,8 +1,8 @@
-Feature: verification of unique id.
+Feature: verification of men page
 
-@reg1
-  Scenario:
+@men
+  Scenario:verification of men page
   Given user is in the homepage
-  When user select the men link
+  When user click the men link
   And user click on view all buttons
   Then user successfully view the all products
