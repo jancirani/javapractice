@@ -13,7 +13,7 @@ Feature: Register to the ASOS page
       | emailaddress              | firstname |lastname  | password     | dateofbirth | gender |
       | jancisasi25@gmail.com     |janci      | rani     | paranisara25 | 17/04/1984  | female  |
 
-  @reg1
+
   Scenario Outline: email address validation
     Given user is on Asos Join/registration page
     When  user enter the invalid emailaddress "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
@@ -22,12 +22,12 @@ Feature: Register to the ASOS page
     Examples:
       | emailaddress              | firstname |lastname  | password    | dateofbirth | gender |
       | 365676787899890            |janci     | rani     |paranisara25 | 17/04/1984  | female |
-
+  @reg1
   Scenario Outline: password field validation.
     Given user is on Asos Join/registration page
     When user enter the invaldpassword "<emailaddress>" "<firstname>" "<lastname>" "<password>" "<dateofbirth>""<gender>"
     And user clicks join ASOS button
-    Then  "At least 6 letters and 1 number, please!" message is displayed
+    Then  "At least 6 letters and 1 number, please!" password error message is displayed
     Examples:
       | emailaddress              | firstname |lastname  | password  | dateofbirth | gender |
       | jancilondon1@gmail.com    | janci      | sarasasi1| 00000000  | 17/04/1984  |femal   |

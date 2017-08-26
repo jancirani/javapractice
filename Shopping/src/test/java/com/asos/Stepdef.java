@@ -177,7 +177,7 @@ public class Stepdef {
 
     @Then("^\"([^\"]*)\" password error message is displayed$")
     public void password_error_message_is_displayed(String expected) throws Throwable {
-    String actual=reg.passwordverification();
-    Assert.assertEquals(expected,actual);
+    String actual = reg.passwordVerification();
+    Assert.assertEquals(expected, actual);
     }
 }
